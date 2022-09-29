@@ -1,0 +1,64 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: OpenApi example
+  description: 'Example of the OpenApi specification'
+paths:
+  /persons:
+    parameters:
+      - name: number
+        in: query
+        description: number of random persons to generate (default - 10)
+        schema:
+          type: integer
+          default: 10
+    get:
+      summary: return requested number of randomly generated person data
+      tags:
+        - person-api
+      responses:
+       '200':
+        description: list of random users
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Person'
+
+  /persons/single:
+    get:
+      summary: return randomly generated single person data
+      tags:
+        - person-api
+      responses:
+        '200':
+          description: single random user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+
+components:
+  schemas:
+    Person:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: Taras
+          minLength: 2
+        lastName:
+          type: string
+          example: Shevchenko
+        email:
+          type: string
+          example: email@gmail.com
+        age:
+          type: integer
+          format: int32
+          example: 20
+        dateOfBirth:
+          type: string
+          format: date
+          example: '2000-01-01'
