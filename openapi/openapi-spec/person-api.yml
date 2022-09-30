@@ -8,6 +8,7 @@ paths:
     parameters:
       - name: number
         in: query
+        required: false
         description: number of random persons to generate (default - 10)
         schema:
           type: integer
