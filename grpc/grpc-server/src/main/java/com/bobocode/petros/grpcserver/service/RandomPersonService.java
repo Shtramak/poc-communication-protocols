@@ -1,6 +1,6 @@
-package com.bobocode.petros.openapiserver.service;
+package com.bobocode.petros.grpcserver.service;
 
-import com.bobocode.petros.openapiserver.domain.Person;
+import com.bobocode.petros.grpcserver.domain.Person;
 import com.devskiller.jfairy.Fairy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

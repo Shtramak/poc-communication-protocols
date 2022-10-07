@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package person;
+option java_package = "com.bobocode.petros.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+message PersonRequest{
+  uint32 number = 1;
+}
+
+message PersonResponse{
+  string first_name = 1;
+  string last_name = 2;
+  uint32 age = 3;
+  string email = 4;
+  google.protobuf.Timestamp date_of_birth = 5;
+}
+
+message MultiplePersonResponse{
+  repeated PersonResponse persons = 1;
+}
+
+service PersonService{
+  rpc GetSinglePerson (google.protobuf.Empty) returns (PersonResponse){}
+  rpc GetMultiplePersons(PersonRequest) returns (MultiplePersonResponse){}
+}

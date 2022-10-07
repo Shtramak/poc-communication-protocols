@@ -1,4 +1,4 @@
-package com.bobocode.petros.openapiserver;
+package com.bobocode.petros.grpcserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

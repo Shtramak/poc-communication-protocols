@@ -1,4 +1,4 @@
-package com.bobocode.petros.grpcserver.domain;
+package com.bobocode.petros.grpcclient.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

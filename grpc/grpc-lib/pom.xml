@@ -2,16 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.bobocode.petros</groupId>
-        <artifactId>grpc</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
-
-    <artifactId>grpc-server</artifactId>
-    <name>grpc-server</name>
-    <description>GRPC server example</description>
-
+    <groupId>com.bobocode.petros</groupId>
+    <artifactId>grpc-lib</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>grpc-lib</name>
+    <description>grpc-lib</description>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -20,30 +15,32 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.devskiller</groupId>
-            <artifactId>jfairy</artifactId>
-            <version>0.6.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-netty-shaded</artifactId>
+            <version>1.49.2</version>
+            <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>net.devh</groupId>
-            <artifactId>grpc-server-spring-boot-starter</artifactId>
-            <version>2.13.1.RELEASE</version>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-protobuf</artifactId>
+            <version>1.49.2</version>
         </dependency>
         <dependency>
-            <groupId>com.bobocode.petros</groupId>
-            <artifactId>grpc-lib</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-stub</artifactId>
+            <version>1.49.2</version>
+        </dependency>
+        <dependency> <!-- necessary for Java 9+ -->
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>annotations-api</artifactId>
+            <version>6.0.53</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.21.7</version>
         </dependency>
     </dependencies>
 
@@ -76,5 +73,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>
